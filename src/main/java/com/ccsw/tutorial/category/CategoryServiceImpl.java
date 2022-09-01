@@ -2,7 +2,6 @@ package com.ccsw.tutorial.category;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +17,15 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     CategoryRepository categoryRepository;
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Category get(Long id) {
+
+        return this.categoryRepository.findById(id).orElse(null);
+    }
 
     /**
      * {@inheritDoc}
@@ -39,7 +47,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (id == null)
             categoria = new Category();
         else
-            categoria = this.categoryRepository.findById(id).orElse(null);
+            categoria = this.get(id);
 
         categoria.setName(dto.getName());
 

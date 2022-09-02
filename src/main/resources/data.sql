@@ -2,6 +2,10 @@ INSERT INTO CATEGORY(id, name) VALUES (1, 'Eurogames');
 INSERT INTO CATEGORY(id, name) VALUES (2, 'Ameritrash');
 INSERT INTO CATEGORY(id, name) VALUES (3, 'Familiar');
 
+INSERT INTO CUSTOMER(id, name) VALUES (1, 'John Doe');
+INSERT INTO CUSTOMER(id, name) VALUES (2, 'Jane Doe');
+INSERT INTO CUSTOMER(id, name) VALUES (3, 'Jack Doe');
+
 INSERT INTO AUTHOR(id, name, nationality) VALUES (1, 'Alan R. Moon', 'US');
 INSERT INTO AUTHOR(id, name, nationality) VALUES (2, 'Vital Lacerda', 'PT');
 INSERT INTO AUTHOR(id, name, nationality) VALUES (3, 'Simone Luciani', 'IT');

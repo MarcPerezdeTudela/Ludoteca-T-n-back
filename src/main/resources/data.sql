@@ -19,3 +19,10 @@ INSERT INTO GAME(id, title, age, category_id, author_id) VALUES (3, '1920: Wall 
 INSERT INTO GAME(id, title, age, category_id, author_id) VALUES (4, 'Barrage', '14', 1, 3);
 INSERT INTO GAME(id, title, age, category_id, author_id) VALUES (5, 'Los viajes de Marco Polo', '12', 1, 3);
 INSERT INTO GAME(id, title, age, category_id, author_id) VALUES (6, 'Azul', '8', 3, 5);
+
+INSERT INTO LOAN(id, customer_id, game_id, loan_date, return_date) VALUES (1, 1, 1, '2020-01-01', '2020-01-15');
+INSERT INTO LOAN(id, customer_id, game_id, loan_date, return_date) VALUES (2, 1, 2, '2020-01-01', '2020-01-15');
+INSERT INTO LOAN(id, customer_id, game_id, loan_date, return_date) VALUES (3, 1, 3, '2020-01-01', '2020-01-15');
+INSERT INTO LOAN(id, customer_id, game_id, loan_date, return_date) VALUES (4, 1, 4, '2020-01-01', '2020-01-15');
+INSERT INTO LOAN(id, customer_id, game_id, loan_date, return_date) VALUES (5, 1, 5, '2020-01-01', '2020-01-15');
+INSERT INTO LOAN(id, customer_id, game_id, loan_date, return_date) VALUES (6, 1, 6, '2020-01-01', '2020-01-15');

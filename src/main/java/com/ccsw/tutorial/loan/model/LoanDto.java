@@ -8,8 +8,8 @@ import com.ccsw.tutorial.game.model.GameDto;
 public class LoanDto {
 
     private Long id;
-    private CustomerDto customerDto;
-    private GameDto gameDto;
+    private CustomerDto customer;
+    private GameDto game;
     private Date loanDate;
     private Date returnDate;
 
@@ -30,39 +30,39 @@ public class LoanDto {
     }
 
     /**
-     * @return customerDto
+     * @return customer
      */
 
-    public CustomerDto getCustomerDto() {
+    public CustomerDto getcustomer() {
 
-        return this.customerDto;
+        return this.customer;
     }
 
     /**
-     * @param customerDto new value of {@link #getCustomerDto}.
+     * @param customer new value of {@link #getcustomer}.
      */
 
-    public void setCustomerDto(CustomerDto customerDto) {
+    public void setcustomer(CustomerDto customer) {
 
-        this.customerDto = customerDto;
+        this.customer = customer;
     }
 
     /**
      * @return gameDto
      */
 
-    public GameDto getGameDto() {
+    public GameDto getGame() {
 
-        return this.gameDto;
+        return this.game;
     }
 
     /**
      * @param gameDto new value of {@link #getGameDto}.
      */
 
-    public void setGameDto(GameDto gameDto) {
+    public void setGame(GameDto game) {
 
-        this.gameDto = gameDto;
+        this.game = game;
     }
 
     /**

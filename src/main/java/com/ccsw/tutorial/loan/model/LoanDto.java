@@ -33,7 +33,7 @@ public class LoanDto {
      * @return customer
      */
 
-    public CustomerDto getcustomer() {
+    public CustomerDto getCustomer() {
 
         return this.customer;
     }
@@ -42,7 +42,7 @@ public class LoanDto {
      * @param customer new value of {@link #getcustomer}.
      */
 
-    public void setcustomer(CustomerDto customer) {
+    public void setCustomer(CustomerDto customer) {
 
         this.customer = customer;
     }

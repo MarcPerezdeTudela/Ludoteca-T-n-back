@@ -1,5 +1,6 @@
 package com.ccsw.tutorial.loan;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -54,4 +55,6 @@ public interface LoanService {
      * @return
      */
     List<Loan> findAll();
+
+    List<Loan> find(Long game, Long customer, Date loanDate);
 }

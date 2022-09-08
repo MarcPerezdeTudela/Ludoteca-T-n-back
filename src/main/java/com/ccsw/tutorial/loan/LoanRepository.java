@@ -16,19 +16,19 @@ import com.ccsw.tutorial.loan.model.Loan;
  */
 public interface LoanRepository extends CrudRepository<Loan, Long> {
 
-    @Query("select l from Loan l where (:game_id is null or l.game.id = :game_id)" +
-            " and (:client_id is null or l.customer.id = :customer_id)" +
-            " and (:loanDate is null or (:loanDate between l.loanDate and l.returnDate))")
-    List<Loan> find(@Param("game_id") Long game_id, @Param("client_id") Long client_id,
-            @Param("loanDate") Date loanDate);
+        @Query("select l from Loan l where (:game_id is null or l.game.id = :game_id)" +
+                        " and (:customer_id is null or l.customer.id = :customer_id)" +
+                        " and (:loanDate is null or (:loanDate between l.loanDate and l.returnDate))")
+        List<Loan> find(@Param("game_id") Long game_id, @Param("customer_id") Long customer_id,
+                        @Param("loanDate") Date loanDate);
 
-    /**
-     * Método para recuperar un listado paginado de
-     * {@link com.ccsw.tutorial.loan.model.Loan}
-     * 
-     * @param page
-     * @return
-     */
-    Page<Loan> findAll(Pageable pageable);
+        /**
+         * Método para recuperar un listado paginado de
+         * {@link com.ccsw.tutorial.loan.model.Loan}
+         * 
+         * @param page
+         * @return
+         */
+        Page<Loan> findAll(Pageable pageable);
 
 }

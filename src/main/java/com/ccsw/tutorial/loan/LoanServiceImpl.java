@@ -1,5 +1,6 @@
 package com.ccsw.tutorial.loan;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import com.ccsw.tutorial.customer.CustomerServiceImpl;
+import com.ccsw.tutorial.game.GameServiceImpl;
 import com.ccsw.tutorial.loan.model.Loan;
 import com.ccsw.tutorial.loan.model.LoanDto;
 import com.ccsw.tutorial.loan.model.LoanSearchDto;
@@ -16,6 +19,12 @@ public class LoanServiceImpl implements LoanService {
 
     @Autowired
     LoanRepository loanRepository;
+
+    @Autowired
+    GameServiceImpl gameService;
+
+    @Autowired
+    CustomerServiceImpl customerService;
 
     @Override
     public Loan get(Long id) {
@@ -29,13 +38,11 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public void save(Long id, LoanDto data) {
-        Loan loan = null;
-        if (id != null)
-            loan = this.get(id);
-        else
-            loan = new Loan();
+        Loan loan = new Loan();
 
-        BeanUtils.copyProperties(data, loan, "id");
+        BeanUtils.copyProperties(data, loan, "id", "game", "customer");
+        loan.setCustomer(customerService.get(data.getCustomer().getId()));
+        loan.setGame(gameService.get(data.getGame().getId()));
 
         this.loanRepository.save(loan);
 
@@ -52,6 +59,11 @@ public class LoanServiceImpl implements LoanService {
 
         return (List<Loan>) this.loanRepository.findAll();
 
+    }
+
+    @Override
+    public List<Loan> find(Long game_id, Long customer_id, Date loanDate) {
+        return this.loanRepository.find(game_id, customer_id, loanDate);
     }
 
 }

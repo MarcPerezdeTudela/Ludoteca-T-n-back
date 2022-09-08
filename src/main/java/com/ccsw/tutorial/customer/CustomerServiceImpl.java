@@ -64,4 +64,9 @@ public class CustomerServiceImpl implements CustomerService {
 
         this.customerRepository.deleteById(id);
     }
+
+    @Override
+    public Customer get(Long id) {
+        return this.customerRepository.findById(id).orElse(null);
+    }
 }

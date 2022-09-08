@@ -35,4 +35,6 @@ public interface CustomerService {
      * @param id
      */
     void delete(Long id);
+
+    Customer get(Long id);
 }

@@ -32,11 +32,6 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
-    public Page<Loan> findPage(LoanSearchDto dto) {
-        return this.loanRepository.findAll(dto.getPageable());
-    }
-
-    @Override
     public void save(Long id, LoanDto data) {
         Loan loan = new Loan();
 
@@ -62,8 +57,8 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
-    public List<Loan> find(Long game_id, Long customer_id, Date loanDate) {
-        return this.loanRepository.find(game_id, customer_id, loanDate);
+    public Page<Loan> findPage(Long game_id, Long customer_id, Date loanDate, LoanSearchDto dto) {
+        return this.loanRepository.find(game_id, customer_id, loanDate, dto.getPageable());
     }
 
 }

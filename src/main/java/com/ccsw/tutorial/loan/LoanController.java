@@ -33,15 +33,6 @@ public class LoanController {
     @Autowired
     BeanMapper beanMapper;
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
-    public List<LoanDto> find(@RequestParam(value = "game_id", required = false) Long game_id,
-            @RequestParam(value = "customer_id", required = false) Long customer_id,
-            @RequestParam(value = "loan_date", required = false) Date loanDate) {
-
-        List<Loan> loans = loanService.find(game_id, customer_id, loanDate);
-        return beanMapper.mapList(loans, LoanDto.class);
-    }
-
     /**
      * Método para recuperar un listado paginado de
      * {@link com.ccsw.tutorial.loan.model.Loan}
@@ -50,9 +41,11 @@ public class LoanController {
      * @return
      */
     @RequestMapping(path = "", method = RequestMethod.POST)
-    public Page<LoanDto> findPage(@RequestBody LoanSearchDto dto) {
+    public Page<LoanDto> findPage(@RequestParam(value = "game_id", required = false) Long gameId,
+            @RequestParam(value = "customer_id", required = false) Long customerId,
+            @RequestParam(value = "loan_date", required = false) Date loanDate, @RequestBody LoanSearchDto dto) {
 
-        return this.beanMapper.mapPage(this.loanService.findPage(dto), LoanDto.class);
+        return this.beanMapper.mapPage(this.loanService.findPage(gameId, customerId, loanDate, dto), LoanDto.class);
     }
 
     /**

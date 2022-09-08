@@ -30,7 +30,7 @@ public interface LoanService {
      * @param dto
      * @return
      */
-    Page<Loan> findPage(LoanSearchDto dto);
+    Page<Loan> findPage(Long game, Long customer, Date loanDate, LoanSearchDto dto);
 
     /**
      * Método para crear o actualizar un
@@ -56,5 +56,4 @@ public interface LoanService {
      */
     List<Loan> findAll();
 
-    List<Loan> find(Long game, Long customer, Date loanDate);
 }
